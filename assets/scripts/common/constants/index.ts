@@ -12,4 +12,6 @@ export enum UIType {
   RoleSelectPage = "RoleSelectPage",
   SettingPage = "SettingPage",
   MapPage = "MapPage",
+
+  MapRenderer = "MapRenderer"
 }

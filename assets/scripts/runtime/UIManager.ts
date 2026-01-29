@@ -56,7 +56,7 @@ export class UIManager extends Component {
         this.uiMap.set(UIType.MapPage, mapPageNode.getComponent(MapPage))
     }
 
-    showUI(types: UIType[], hideOthers = false) {
+    showUI(types: UIType[], hideOthers = true) {
         this.uiMap.forEach((node, uiType) => {
             console.log(types, uiType)
             if (types.includes(uiType)) {

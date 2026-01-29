@@ -1,3 +1,5 @@
+import { Color } from "cc";
+
 /** 地图节点类型 */
 export enum NodeType {
   Enemy = 'enemy', //
@@ -7,6 +9,17 @@ export enum NodeType {
   // Event = 'event',
   // Treasure = 'treasure',
   // Store = 'store',
+}
+
+export enum NodeStatus {
+  /** 普通节点 */
+  Normal = "Normal",
+  /** 可选择节点 */
+  Available = "Available",
+  /** 高亮节点 */
+  Highlight = "Highlight",
+  /** 已通过节点 */
+  Pass = "Pass",
 }
 
 /** 地图最大行索引 */
@@ -68,6 +81,33 @@ export const MAP_CONFIG: MapConfig = {
 
   },
 };
+
+export const LAYOUT_CONFIG: LayoutConfig = {
+  nodeWidth: 50,
+  nodeHeight: 50,
+  colGap: 100,
+  rowHeight: 200,
+  pathStroke: new Color(102, 102, 102),
+  pathWidth: 1,
+  pathHoverStroke: new Color(255, 68, 0),
+};
+
+export interface LayoutConfig {
+  /** 普通节点宽度（与预制体一致） */
+  nodeWidth: number;
+  /** 普通节点高度（与预制体一致） */
+  nodeHeight: number;
+  /** 列间距（col索引每+1的x偏移） */
+  colGap: number;
+  /** 行高（row索引每+1的y偏移） */
+  rowHeight: number;
+  /** 路径颜色 */
+  pathStroke: Color;
+  /** 路径宽度 */
+  pathWidth: number;
+  /** 路径悬浮颜色（可选） */
+  pathHoverStroke: Color;
+}
 
 /** 地图生成规则相关的配置 */
 export interface MapConfig {

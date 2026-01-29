@@ -11,7 +11,7 @@ const { ccclass, property } = _decorator;
 
 @ccclass('GameManager')
 export class GameManager extends Component {
-    currentLevel: number = 1;
+    currentLevel: number = 0;
     currentNode: GameNode = null
     onLoad() {
         StaticSingleton.setGameManager(this);
@@ -32,7 +32,8 @@ export class GameManager extends Component {
             new Fighter(),
         ]);
         // 初始化地图
-        MapManagerInstance.initMap(1234123);
+        const actMaps = MapManagerInstance.initMap(1234123);
+        StaticSingleton.MapPage.renderMap(actMaps, this.currentLevel);
         // todo 跳转到地图的界面
         StaticSingleton.UIManager.showUI([UIType.MapPage])
     }

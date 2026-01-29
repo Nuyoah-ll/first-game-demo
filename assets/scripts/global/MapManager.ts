@@ -46,7 +46,7 @@ class MapManager {
    * 初始化全局地图（入口）
    * @param seed 随机种子
    */
-  public initMap(seed: number): void {
+  public initMap(seed: number): ActMap[] {
     this.gameMap.seed = seed;
     this.random = new SeededRandom(seed);
     this.gameMap.actMaps = [];
@@ -56,6 +56,7 @@ class MapManager {
       const actMap = this.generateSingleAct(actId);
       this.gameMap.actMaps.push(actMap);
     }
+    return this.gameMap.actMaps;
   }
 
   /**
@@ -182,7 +183,7 @@ class MapManager {
    */
   private assignSpecialNodeTypes(actMap: ActMap, editableNodes: MapNode[], counter: Record<NodeType, number>): void {
     const { nodeLimit } = MAP_CONFIG;
-   // 特殊节点分配，排除boss节点和敌人节点（因为初始化时给所有节点赋值了敌人节点作为节点默认值）
+    // 特殊节点分配，排除boss节点和敌人节点（因为初始化时给所有节点赋值了敌人节点作为节点默认值）
     const specialNodeTypes: NodeType[] = [...Object.values(NodeType)].filter(
       (type) => ![NodeType.Enemy, NodeType.Boss].includes(type),
     );
