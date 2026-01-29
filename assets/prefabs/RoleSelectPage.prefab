@@ -849,7 +849,7 @@
       "b": 0,
       "a": 255
     },
-    "_string": "button",
+    "_string": "Fighter",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
     "_actualFontSize": 20,
@@ -1221,7 +1221,7 @@
       "b": 0,
       "a": 255
     },
-    "_string": "button",
+    "_string": "Wizard",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
     "_actualFontSize": 20,
@@ -1654,6 +1654,7 @@
       "__id__": 0
     },
     "fileId": "8bvA0k1ERJKalg4AHUCN1k",
+    "instance": null,
     "targetOverrides": null
   }
 ]

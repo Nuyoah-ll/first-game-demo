@@ -5,6 +5,7 @@ import { StaticSingleton } from '../global/StaticSingleton';
 import { HomePage } from '../ui/HomePage';
 import { RoleSelectPage } from '../ui/RoleSelectPage';
 import { SettingPage } from '../ui/SettingPage';
+import { MapPage } from '../ui/MapPage';
 const { ccclass, property } = _decorator;
 
 @ccclass('UIManager')
@@ -18,6 +19,9 @@ export class UIManager extends Component {
     @property(Prefab)
     settingPagePrefab: Prefab | null = null;
 
+    @property(Prefab)
+    mapPagePrefab: Prefab | null = null;
+
     uiMap: Map<UIType, UIBase> = new Map();
 
     protected onLoad(): void {
@@ -25,6 +29,7 @@ export class UIManager extends Component {
         this.initHomePage();
         this.initRoleSelectPage();
         this.initSettingPage();
+        this.initMapPage();
     }
 
     initHomePage() {
@@ -43,6 +48,12 @@ export class UIManager extends Component {
         const settingPageNode = instantiate(this.settingPagePrefab);
         settingPageNode.parent = this.node;
         this.uiMap.set(UIType.SettingPage, settingPageNode.getComponent(SettingPage))
+    }
+
+    initMapPage() {
+        const mapPageNode = instantiate(this.mapPagePrefab);
+        mapPageNode.parent = this.node;
+        this.uiMap.set(UIType.MapPage, mapPageNode.getComponent(MapPage))
     }
 
     showUI(types: UIType[], hideOthers = false) {
