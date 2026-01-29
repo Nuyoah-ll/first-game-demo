@@ -1,5 +1,6 @@
 import { _decorator, Component, Node } from 'cc';
-import { Role } from '../common/Role';
+import { Role } from '../common/classes/Role';
+import { Enemy } from '../common/classes/Enemy';
 const { ccclass, property } = _decorator;
 
 @ccclass('BattleManager')
