@@ -7,10 +7,9 @@ import { _decorator } from "cc";
 const { ccclass } = _decorator;
 @ccclass('EnemyNode')
 export class EnemyNode extends GameNode {
+  private enemyTeams: Enemy[]
   // 在节点初始化的时候，怪物种类就确认了
-  constructor(private enemyTeams: Enemy[]) {
-    super();
-  }
+
   onLoad() {
     super.onLoad();
   }
@@ -18,5 +17,9 @@ export class EnemyNode extends GameNode {
   // 当点击该节点后，触发战斗事件
   onNodeTouchEnd() {
     EventManagerInstance.emit(EventName.Battle, this)
+  }
+
+  setEnemyTeams(enemyTeams: Enemy[]) {
+    this.enemyTeams = enemyTeams;
   }
 }

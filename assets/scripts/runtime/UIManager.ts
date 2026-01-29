@@ -1,4 +1,4 @@
-import { _decorator, Button, Component, EventHandler, instantiate, Label, Layout, Prefab, Node } from 'cc';
+import { _decorator, Component, instantiate, Prefab } from 'cc';
 import { UIType } from '../common/constants';
 import { UIBase } from '../common/classes/ui/UIBase';
 import { StaticSingleton } from '../global/StaticSingleton';
@@ -58,7 +58,6 @@ export class UIManager extends Component {
 
     showUI(types: UIType[], hideOthers = true) {
         this.uiMap.forEach((node, uiType) => {
-            console.log(types, uiType)
             if (types.includes(uiType)) {
                 node.show();
             } else if (hideOthers) {

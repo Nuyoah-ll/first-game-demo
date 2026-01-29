@@ -23,7 +23,7 @@ export enum NodeStatus {
 }
 
 /** 地图最大行索引 */
-export const MAX_ROW_INDEX = 15;
+export const MAX_ROW_INDEX = 14;
 
 /** 地图生成规则相关的配置 */
 export const MAP_CONFIG: MapConfig = {
@@ -88,7 +88,7 @@ export const LAYOUT_CONFIG: LayoutConfig = {
   colGap: 100,
   rowHeight: 200,
   pathStroke: new Color(102, 102, 102),
-  pathWidth: 1,
+  pathWidth: 5,
   pathHoverStroke: new Color(255, 68, 0),
 };
 

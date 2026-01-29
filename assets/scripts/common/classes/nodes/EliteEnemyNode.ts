@@ -8,9 +8,8 @@ import { EliteEnemy } from "../EliteEnemy";
 const { ccclass } = _decorator;
 @ccclass('EliteEnemyNode')
 export class EliteEnemyNode extends GameNode {
-  constructor(private eliteEnemy: EliteEnemy) {
-    super();
-  }
+  private eliteEnemy: EliteEnemy
+  
   onLoad() {
     super.onLoad();
   }
@@ -18,5 +17,9 @@ export class EliteEnemyNode extends GameNode {
   // 当点击该节点后，触发战斗事件
   onNodeTouchEnd() {
     EventManagerInstance.emit(EventName.EliteBattle, this)
+  }
+
+  setEliteEnemy(eliteEnemy: EliteEnemy) {
+    this.eliteEnemy = eliteEnemy;
   }
 }
