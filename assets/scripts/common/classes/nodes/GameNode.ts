@@ -1,11 +1,19 @@
-import { _decorator, Component, EventTouch, Input } from "cc";
+import { _decorator, Component, Node, UITransform, Vec3 } from "cc";
 const { ccclass } = _decorator;
 
 @ccclass('GameNode')
 export class GameNode extends Component {
   onLoad() {
-    this.node.on(Input.EventType.TOUCH_END, this.onNodeTouchEnd, this)
+    console.log("触发绑定事件了吗？")
+    this.node.on(Node.EventType.MOUSE_ENTER, this.onNodeMouseEnter, this)
+    this.node.on(Node.EventType.MOUSE_LEAVE, this.onNodeMouseLeave, this)
   }
 
-  onNodeTouchEnd() { }
+  onNodeMouseEnter() {
+    this.node.scale = new Vec3(1.2, 1.2, 0)
+  }
+
+  onNodeMouseLeave() {
+    this.node.scale = new Vec3(1, 1, 1)
+  }
 }
