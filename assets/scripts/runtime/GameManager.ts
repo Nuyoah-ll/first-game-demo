@@ -6,6 +6,7 @@ import { GameNode } from '../common/classes/nodes/GameNode';
 import { StaticSingleton } from '../global/StaticSingleton';
 import { RoleType } from '../common/constants/role';
 import { UIType } from '../common/constants';
+import { getRandomInt } from '../common/utils';
 const { ccclass, property } = _decorator;
 
 @ccclass('GameManager')
@@ -31,7 +32,7 @@ export class GameManager extends Component {
             new Fighter(),
         ]);
         // 初始化地图
-        StaticSingleton.MapPage.initMap(1234123);
+        StaticSingleton.MapPage.initMap(getRandomInt(1, 100000000));
         StaticSingleton.MapPage.renderMap(this.currentLevel);
         // 跳转到地图的界面
         StaticSingleton.UIManager.showUI([UIType.MapPage])
