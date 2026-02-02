@@ -30,6 +30,7 @@ export class GameManager extends Component {
         // 初始化队伍
         TeamManagerInstance.initTeam([
             new Fighter(),
+            new Wizard(),
         ]);
         // 初始化地图
         StaticSingleton.MapPage.initMap(getRandomInt(1, 100000000));
